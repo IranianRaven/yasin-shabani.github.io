@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>یاسین شعبانی | توسعه‌دهنده بک‌اند</title>
+    <title>Yasin Shabani | Full-Stack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* متغیرهای رنگ */
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #f59e0b;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --primary-light: #8B5CF6;
+            --secondary: #F59E0B;
+            --accent: #EC4899;
+            --dark: #0F172A;
+            --darker: #020617;
+            --light: #F1F5F9;
+            --lighter: #FFFFFF;
+            --gray: #64748B;
+            --gray-light: #E2E8F0;
+            --success: #10B981;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --neon-glow: 0 0 20px rgba(99, 102, 241, 0.5);
+            --shadow-3d: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
-        /* ریست استایل‌ها */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         html {
@@ -30,108 +42,163 @@
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.7;
             overflow-x: hidden;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            background-attachment: fixed;
         }
 
-        /* استایل‌های عمومی */
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         section {
-            padding: 80px 0;
+            padding: 120px 0;
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
+            position: relative;
         }
 
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             right: 50%;
             transform: translateX(50%);
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--accent));
             border-radius: 2px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
+            box-shadow: var(--neon-glow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            z-index: 1;
         }
 
         .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
         }
 
-        /* نوار ناوبری */
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* استایل هدر مدرن */
         header {
             position: fixed;
             top: 0;
             right: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 25px 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo::before {
+            content: '⚡';
+            font-size: 2rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 40px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 0;
+            font-size: 1.1rem;
         }
 
         .nav-links a:hover {
@@ -141,11 +208,11 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             right: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--primary);
             transition: width 0.3s ease;
         }
 
@@ -156,308 +223,553 @@
         .menu-toggle {
             display: none;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--light);
         }
 
-        /* بخش هیرو */
+        /* بخش هیرو فوق‌العاده */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
-            z-index: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.7));
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
-            width: 50%;
-        }
-
-        .hero-image {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80') center/cover no-repeat;
-            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+            padding: 100px 0;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-size: 5rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .hero h1 span {
-            color: var(--primary);
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(236, 72, 153, 0.5), 0 0 40px rgba(99, 102, 241, 0.3);
+            }
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--gray);
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            color: var(--gray-light);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 28px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            color: var(--light);
+        }
+
+        .badge:hover {
+            transform: translateY(-5px);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .badge i {
+            color: var(--primary);
+            font-size: 1.3rem;
         }
 
         .hero-btns {
             display: flex;
-            gap: 15px;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* بخش درباره من */
         .about {
-            background-color: white;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
         }
 
         .about-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
-            gap: 50px;
-        }
-
-        .about-text {
-            flex: 1;
         }
 
         .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark);
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            font-weight: 700;
         }
 
         .about-text p {
-            margin-bottom: 20px;
-            color: var(--gray);
+            margin-bottom: 25px;
+            color: var(--gray-light);
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         .about-image {
-            flex: 1;
+            position: relative;
             text-align: center;
         }
 
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* استایل جدید برای تصویر پروفایل */
         .profile-img {
-            width: 300px;
-            height: 300px;
+            width: 450px;
+            height: 450px;
             border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid transparent;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+            padding: 6px;
+            box-shadow: var(--neon-glow);
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-img-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 5px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: block;
+            border-radius: 50%;
+            animation: rotateReverse 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateReverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
         }
 
         /* بخش مهارت‌ها */
         .skills {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .skills .section-title h2 {
-            color: white;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .skill-category:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
         }
 
         .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            color: var(--light);
+            position: relative;
+            z-index: 2;
         }
 
         .skill-category h3 i {
             color: var(--secondary);
+            font-size: 2rem;
         }
 
         .skill-items {
             list-style: none;
+            position: relative;
+            z-index: 2;
         }
 
         .skill-items li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: var(--gray-light);
         }
 
         .skill-items li i {
-            color: var(--secondary);
+            color: var(--success);
+        }
+
+        .skill-level {
+            margin-right: 15px;
+            font-size: 0.9rem;
+            background: rgba(99, 102, 241, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* بخش زبان‌ها */
+        .languages {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .language-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-15px) rotate(2deg);
+            border-color: var(--primary);
+        }
+
+        .language-item:hover::before {
+            opacity: 1;
+        }
+
+        .language-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .language-item h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .language-level {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
         }
 
         /* بخش نمونه کارها */
         .portfolio {
-            background-color: var(--light);
-        }
-
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            padding: 8px 20px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
         }
 
         .portfolio-item {
-            background: white;
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-20px) scale(1.03);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-3d), var(--neon-glow);
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 1;
         }
 
         .portfolio-img {
-            height: 200px;
-            background: var(--gray);
+            height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.8));
+        }
+
+        .portfolio-img-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .portfolio-img-content i {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: block;
             color: white;
-            font-size: 1.5rem;
+        }
+
+        .portfolio-img-content h3 {
+            font-size: 2rem;
+            color: white;
+            font-weight: 700;
         }
 
         .portfolio-info {
-            padding: 20px;
+            padding: 35px;
+            position: relative;
+            z-index: 2;
         }
 
         .portfolio-info h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: var(--light);
+            font-weight: 700;
         }
 
         .portfolio-info p {
-            color: var(--gray);
-            margin-bottom: 15px;
+            color: var(--gray-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 12px;
         }
 
         /* بخش اهداف */
         .goals {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .goals .section-title h2 {
-            color: white;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            backdrop-filter: blur(10px);
         }
 
         .goals-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .goal-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 45px;
+            border-radius: 25px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
+            transition: all 0.4s ease;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .goal-item:hover::before {
+            opacity: 1;
         }
 
         .goal-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.2);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .goal-text {
+            position: relative;
+            z-index: 2;
         }
 
         .goal-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .goal-text p {
+            color: var(--gray-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         /* بخش تماس */
         .contact {
-            background-color: white;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
         }
 
         .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--light);
         }
 
         .contact-info p {
-            margin-bottom: 30px;
-            color: var(--gray);
+            margin-bottom: 40px;
+            color: var(--gray-light);
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
         .contact-details {
@@ -465,117 +777,212 @@
         }
 
         .contact-details li {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            font-size: 1.2rem;
         }
 
         .contact-details li i {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .contact-form {
-            flex: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 25px;
+            border: 1px solid var(--glass-border);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.1rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            padding: 18px 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--light);
         }
 
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
 
         /* فوتر */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
+            background: var(--darker);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--glass-border);
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo::before {
+            content: '🚀';
+            font-size: 2.2rem;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--light);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            font-size: 1.5rem;
+            border: 1px solid var(--glass-border);
         }
 
         .social-links a:hover {
             background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: var(--neon-glow);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+            padding-top: 40px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* انیمیشن‌های پیشرفته */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* اسکرول بار سفارشی */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
         }
 
         /* رسپانسیو */
-        @media (max-width: 992px) {
-            .hero-content {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .hero-image {
-                display: none;
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
             }
             
             .about-content {
-                flex-direction: column;
+                gap: 60px;
+            }
+            
+            .profile-img {
+                width: 380px;
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
             
             .contact-content {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .profile-img {
+                width: 320px;
+                height: 320px;
             }
         }
 
@@ -586,26 +993,56 @@
             
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 90px;
                 right: -100%;
-                width: 80%;
-                height: calc(100vh - 70px);
-                background: white;
+                width: 85%;
+                height: calc(100vh - 90px);
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
-                padding-top: 50px;
-                transition: right 0.3s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding-top: 80px;
+                transition: right 0.4s ease;
+                border-left: 1px solid var(--glass-border);
+                gap: 35px;
             }
             
             .nav-links.active {
                 right: 0;
             }
             
-            .nav-links li {
-                margin: 15px 0;
+            .hero h1 {
+                font-size: 3rem;
             }
             
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .goals-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -613,19 +1050,37 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .profile-img {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .btn {
+                padding: 14px 28px;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
     <!-- نوار ناوبری -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">یاسین شعبانی</div>
+                <div class="logo">YASIN SHABANI</div>
                 <ul class="nav-links">
                     <li><a href="#home">خانه</a></li>
                     <li><a href="#about">درباره من</a></li>
                     <li><a href="#skills">مهارت‌ها</a></li>
+                    <li><a href="#languages">زبان انگلیسی</a></li>
                     <li><a href="#portfolio">نمونه کارها</a></li>
                     <li><a href="#goals">اهداف</a></li>
                     <li><a href="#contact">تماس با من</a></li>
@@ -640,16 +1095,37 @@
     <!-- بخش اصلی -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>سلام، من <span>یاسین شعبانی</span> هستم</h1>
-                <p>توسعه‌دهنده بک‌اند، علاقه‌مند به هوش مصنوعی و معلم زبان انگلیسی. پرانرژی، هدفمند و همیشه در حال یادگیری!</p>
+            <div class="hero-content fade-in-up">
+                <h1 class="floating">YASIN SHABANI</h1>
+                <p>توسعه‌دهنده Full-Stack • مدرس زبان انگلیسی • علاقه‌مند به هوش مصنوعی</p>
+                
+                <div class="hero-badges">
+                    <div class="badge floating" style="animation-delay: 0.2s;">
+                        <i class="fas fa-code"></i>
+                        <span>Frontend & Backend</span>
+                    </div>
+                    <div class="badge floating" style="animation-delay: 0.4s;">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>مدرس زبان انگلیسی</span>
+                    </div>
+                    <div class="badge floating" style="animation-delay: 0.6s;">
+                        <i class="fas fa-robot"></i>
+                        <span>علاقه‌مند به هوش مصنوعی</span>
+                    </div>
+                </div>
+
                 <div class="hero-btns">
-                    <a href="#portfolio" class="btn">نمونه کارهای من</a>
-                    <a href="#contact" class="btn btn-secondary">تماس با من</a>
+                    <a href="#portfolio" class="btn">
+                        <i class="fas fa-rocket"></i>
+                        نمونه کارهای من
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i>
+                        شروع همکاری
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="hero-image"></div>
     </section>
 
     <!-- بخش درباره من -->
@@ -659,16 +1135,25 @@
                 <h2>درباره من</h2>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>یاسین شعبانی - ۱۷ ساله، اهل کرج</h3>
-                    <p>من یک فرد پرانرژی، صمیمی و شوخ‌طبع هستم که وقتی پای کار وسط باشه، کاملاً جدی و متمرکز میشم. از همون اول به ساختن و یاد گرفتن علاقه داشتم، و همین باعث شد مسیرم رو توی برنامه‌نویسی پیدا کنم.</p>
-                    <p>تا الان دوره‌های Python، Django و Web Design رو گذروندم و به‌صورت تخصصی در زمینه‌ی Backend Development فعالیت دارم. هدف بعدی‌م یا ورود به دنیای هوش مصنوعیه، یا ارتقای مهارتم در Backend به سطح حرفه‌ای‌تر.</p>
-                    <p>در کنار برنامه‌نویسی، علاقه‌ی زیادی به یادگیری زبان انگلیسی دارم و در حال گذروندن دوره‌ی TTC و روان‌شناسی کودک برای تدریس زبان هستم.</p>
-                    <p>خارج از دنیای کد، عاشق موسیقی‌ام (گیتار می‌زنم)، به ورزش، مخصوصاً بدنسازی، پارکور و شنا علاقه دارم و چند مهارت رسمی توی شنا هم دارم.</p>
-                    <a href="#contact" class="btn">بیاین صحبت کنیم</a>
+                <div class="about-text fade-in-up">
+                    <h3>یاسین شعبانی</h3>
+                    <p>۱۷ ساله، اهل کرج - توسعه‌دهنده Full-Stack با تخصص در Frontend و Backend. هدف اصلی من پیشرفت در زمینه Backend Development یا ورود به دنیای هوش مصنوعی است.</p>
+                    <p>در کنار برنامه‌نویسی، در حال گذراندن دوره TTC (روان‌شناسی کودک و روش‌های تدریس) هستم تا بتوانم به عنوان معلم زبان انگلیسی فعالیت کنم.</p>
+                    <p>به ورزش‌های مختلف از جمله بدنسازی و شنا علاقه دارم و در شنا مهارت‌های خوبی دارم.</p>
+                    <p>آدمی منطقی، مسئولیت‌پذیر و همیشه در حال یادگیری هستم و معتقدم آموزش بهترین مسیر برای رشد شخصی است.</p>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-comments"></i>
+                        در ارتباط باشیم
+                    </a>
                 </div>
-                <div class="about-image">
-                    <div class="profile-img"></div>
+                <div class="about-image fade-in-up">
+                    <div class="profile-container">
+                        <div class="profile-img">
+                            <div class="profile-img-inner">
+                                <img src="images/IMG_20251006_225509_978.jpg" alt="یاسین شعبانی" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDUwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDQ1MCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0NTAiIGhlaWdodD0iNDUwIiByeD0iMjI1IiBmaWxsPSIjNjY3RUVBIi8+CjxwYXRoIGQ9Ik0yMjUgMTUwQzE4MS44IDE1MCAxNDUgMTg2LjggMTQ1IDIzMEMxNDUgMjczLjIgMTgxLjggMzEwIDIyNSAzMTBDMjY4LjIgMzEwIDMwNSAyNzMuMiAzMDUgMjMwQzMwNSAxODYuOCAyNjguMiAxNTAgMjI1IDE1MFoiIGZpbGw9IndoaXRlIi8+CjxjaXJjbGUgY3g9IjE4NSIgY3k9IjE5NSIgcj0iMjUiIGZpbGw9IndoaXRlIi8+CjxjaXJjbGUgY3g9IjI2NSIgY3k9IjE5NSIgcj0iMjUiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xODUgMjcwQzE4NSAyNzAgMjA1IDMwMCAyMjUgMzAwQzI0NSAzMDAgMjY1IDI3MCAyNjUgMjcwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -681,32 +1166,50 @@
                 <h2>مهارت‌های من</h2>
             </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> برنامه‌نویسی</h3>
+                <div class="skill-category fade-in-up">
+                    <h3><i class="fas fa-laptop-code"></i> توسعه Frontend</h3>
                     <ul class="skill-items">
-                        <li><i class="fas fa-check"></i> Python - سطح پیشرفته</li>
-                        <li><i class="fas fa-check"></i> Django - سطح متوسط</li>
-                        <li><i class="fas fa-check"></i> HTML/CSS/JavaScript - سطح متوسط</li>
-                        <li><i class="fas fa-check"></i> توسعه Backend</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> HTML5 & CSS3</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> JavaScript</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> Responsive Design</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-language"></i> زبان‌ها</h3>
+                <div class="skill-category fade-in-up">
+                    <h3><i class="fas fa-server"></i> توسعه Backend</h3>
                     <ul class="skill-items">
-                        <li><i class="fas fa-check"></i> فارسی - زبان مادری</li>
-                        <li><i class="fas fa-check"></i> انگلیسی - سطح پیشرفته</li>
-                        <li><i class="fas fa-check"></i> تدریس زبان انگلیسی</li>
-                        <li><i class="fas fa-check"></i> روان‌شناسی کودک برای تدریس</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">پیشرفته</span> Python</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> Django</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> Database Design</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="skill-category fade-in-up">
                     <h3><i class="fas fa-dumbbell"></i> ورزش و موسیقی</h3>
                     <ul class="skill-items">
-                        <li><i class="fas fa-check"></i> گیتار - سطح متوسط</li>
-                        <li><i class="fas fa-check"></i> بدنسازی</li>
-                        <li><i class="fas fa-check"></i> پارکور</li>
-                        <li><i class="fas fa-check"></i> شنا (مدارک رسمی)</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> گیتار</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">حرفه‌ای</span> شنا</li>
+                        <li><i class="fas fa-check"></i> <span class="skill-level">متوسط</span> بدنسازی</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش زبان‌ها -->
+    <section id="languages" class="languages">
+        <div class="container">
+            <div class="section-title">
+                <h2>زبان انگلیسی</h2>
+            </div>
+            <div class="languages-grid">
+                <div class="language-item fade-in-up">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>English</h3>
+                    <p class="language-level">Advanced Level</p>
+                    <p style="margin-top: 20px; font-size: 1.1rem; color: var(--gray-light);">
+                        در حال گذراندن دوره TTC برای تدریس
+                    </p>
                 </div>
             </div>
         </div>
@@ -716,49 +1219,78 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>نمونه کارهای من</h2>
-            </div>
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">همه</button>
-                <button class="filter-btn" data-filter="web">وب‌سایت</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="python">Python</button>
+                <h2>نمونه کارها</h2>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        پروژه وب‌سایت
+                <!-- نمونه کار 1 -->
+                <div class="portfolio-item fade-in-up">
+                    <div class="portfolio-img" style="background: var(--gradient-1);">
+                        <div class="portfolio-img-content">
+                            <i class="fas fa-palette"></i>
+                            <h3>طراحی CSS</h3>
+                        </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>وب‌سایت فروشگاهی</h3>
-                        <p>یک وب‌سایت فروشگاهی با Django و طراحی ریسپانسیو</p>
+                        <h3>طراحی CSS حرفه‌ای</h3>
+                        <p>طرح‌های مدرن و ریسپانسیو با CSS خالص - انیمیشن‌ها و افکت‌های پیشرفته. طراحی کاملاً واکنش‌گرا و بهینه برای موبایل.</p>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-code"></i>
+                                نمونه کد
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fas fa-image"></i>
+                                اسکرین‌شات
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="backend">
-                    <div class="portfolio-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        API سرویس
+
+                <!-- نمونه کار 2 -->
+                <div class="portfolio-item fade-in-up">
+                    <div class="portfolio-img" style="background: var(--gradient-2);">
+                        <div class="portfolio-img-content">
+                            <i class="fas fa-cogs"></i>
+                            <h3>پنل مدیریت</h3>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <h3>سیستم مدیریت محتوا</h3>
-                        <p>یک سیستم مدیریت محتوای کامل با پنل ادمین پیشرفته</p>
+                        <p>پنل ادمین با Django - مدیریت کاربران، محتوا و تنظیمات پیشرفته. دارای سیستم احراز هویت و سطوح دسترسی مختلف.</p>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-eye"></i>
+                                اسکرین‌شات
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                                جزئیات فنی
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="python">
-                    <div class="portfolio-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        ابزار پایتون
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>بات آنالیز داده</h3>
-                        <p>یک بات پایتون برای آنالیز و پردازش داده‌های بزرگ</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        پورت‌فولیو
+
+                <!-- نمونه کار 3 -->
+                <div class="portfolio-item fade-in-up">
+                    <div class="portfolio-img" style="background: var(--gradient-3);">
+                        <div class="portfolio-img-content">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>پورت‌فولیو</h3>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <h3>پورت‌فولیو شخصی</h3>
-                        <p>یک پورت‌فولیو شیک و مدرن با HTML, CSS و JavaScript</p>
+                        <p>سایت شخصی با طراحی اختصاصی - ترکیب Frontend و Backend. دارای فرم تماس، گالری نمونه کارها و بخش مدیریت محتوا.</p>
+                        <div class="portfolio-buttons">
+                            <a href="#" class="btn btn-small">
+                                <i class="fas fa-external-link-alt"></i>
+                                مشاهده پروژه
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fas fa-code-branch"></i>
+                                کد منبع
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -769,34 +1301,34 @@
     <section id="goals" class="goals">
         <div class="container">
             <div class="section-title">
-                <h2>اهداف من</h2>
+                <h2>اهداف آینده</h2>
             </div>
             <div class="goals-content">
-                <div class="goal-item">
+                <div class="goal-item fade-in-up">
                     <div class="goal-icon">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="goal-text">
-                        <h3>ورود به دنیای هوش مصنوعی</h3>
-                        <p>هدف بعدی من یادگیری و فعالیت در زمینه هوش مصنوعی و ماشین لرنینگ است تا بتوانم در این حوزه نوآوری کنم.</p>
+                        <h3>یادگیری هوش مصنوعی</h3>
+                        <p>هدف بعدی من ورود به دنیای هوش مصنوعی و ماشین لرنینگ است تا بتوانم در این حوزه نوآوری کنم.</p>
                     </div>
                 </div>
-                <div class="goal-item">
+                <div class="goal-item fade-in-up">
                     <div class="goal-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <div class="goal-text">
-                        <h3>توسعه‌دهنده بک‌اند حرفه‌ای</h3>
-                        <p>می‌خواهم مهارت‌هایم در توسعه بک‌اند را تا سطح حرفه‌ای ارتقا دهم و در پروژه‌های بزرگ‌مقیاس مشارکت کنم.</p>
+                        <h3>توسعه‌دهنده Backend حرفه‌ای</h3>
+                        <p>می‌خواهم مهارت‌هایم در توسعه Backend را تا سطح حرفه‌ای ارتقا دهم و در پروژه‌های بزرگ‌مقیاس مشارکت کنم.</p>
                     </div>
                 </div>
-                <div class="goal-item">
+                <div class="goal-item fade-in-up">
                     <div class="goal-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <div class="goal-text">
                         <h3>تدریس زبان انگلیسی</h3>
-                        <p>با تکمیل دوره TTC و روان‌شناسی کودک، قصد دارم به عنوان معلم زبان انگلیسی به کودکان آموزش دهم.</p>
+                        <p>با تکمیل دوره TTC، قصد دارم به عنوان معلم زبان انگلیسی به کودکان و نوجوانان آموزش دهم.</p>
                     </div>
                 </div>
             </div>
@@ -810,9 +1342,9 @@
                 <h2>تماس با من</h2>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info fade-in-up">
                     <h3>بیاین با هم صحبت کنیم!</h3>
-                    <p>اگر پروژه‌ای دارید یا می‌خواهید همکاری کنیم، خوشحال می‌شم ازتون خبر بگیرم.</p>
+                    <p>اگر پروژه‌ای دارید یا می‌خواهید در مورد همکاری صحبت کنیم، خوشحال می‌شم ازتون خبر بگیرم.</p>
                     <ul class="contact-details">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
@@ -820,15 +1352,15 @@
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <span>yasin.shabani@example.com</span>
+                            <span>yasinshabani2008@gmail.com</span>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <span>+98 912 345 6789</span>
+                            <span dir="ltr" style="unicode-bidi:isolate; white-space:nowrap;">+98 935 316 8454</span>
                         </li>
                     </ul>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form fade-in-up">
                     <form>
                         <div class="form-group">
                             <label for="name">نام شما</label>
@@ -846,7 +1378,10 @@
                             <label for="message">پیام شما</label>
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn">ارسال پیام</button>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i>
+                            ارسال پیام
+                        </button>
                     </form>
                 </div>
             </div>
@@ -857,48 +1392,69 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">یاسین شعبانی</div>
+                <div class="footer-logo">YASIN SHABANI</div>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/khode_raven" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/iranianraven" target="_blank" aria-label="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/989353168454" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://github.com/IranianRaven" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2023 کلیه حقوق برای یاسین شعبانی محفوظ است.</p>
+                <p>© 2023 - طراحی شده با ❤️ توسط یاسین شعبانی</p>
             </div>
         </div>
     </footer>
 
+    <!-- اسکریپت Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // پیکربندی Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6366F1" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#6366F1",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            }
+        });
+
         // منوی موبایل
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // فیلتر نمونه کارها
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // حذف کلاس active از همه دکمه‌ها
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // اضافه کردن کلاس active به دکمه کلیک شده
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                const portfolioItems = document.querySelectorAll('.portfolio-item');
-                
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
         });
 
         // اسکرول نرم برای لینک‌های منو
@@ -926,12 +1482,38 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+                header.style.backdropFilter = 'blur(25px)';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(15, 23, 42, 0.8)';
+                header.style.backdropFilter = 'blur(20px)';
             }
+        });
+
+        // مدیریت فرم تماس
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیرم.');
+            this.reset();
+        });
+
+        // انیمیشن اسکرول
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // مشاهده عناصر برای انیمیشن
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
